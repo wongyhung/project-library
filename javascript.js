@@ -87,7 +87,7 @@ addBookForm.addEventListener("submit", (event) => {
     const title = document.querySelector("#bookTitle").value;
     const author = document.querySelector("#bookAuthor").value;
     const pages = document.querySelector("#bookPages").value;
-    const readStatus = document.querySelector("#readStatus").value;
+    const readStatus = document.querySelector("#readStatus").checked ? "Yes" : "No";
 
     addBookToLibrary(title, author, pages, readStatus);
 
@@ -95,5 +95,5 @@ addBookForm.addEventListener("submit", (event) => {
 });
 
 Book.prototype.toggleReadStatus = function() {
-    this.readStatus = this.readStatus === "Read" ? "Not read" : "Read";
+    this.readStatus = this.readStatus === "Yes" ? "No" : "Yes";
 }
