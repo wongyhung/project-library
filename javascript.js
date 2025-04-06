@@ -91,7 +91,7 @@ addBookForm.addEventListener("submit", (event) => {
 
     addBookToLibrary(title, author, pages, readStatus);
 
-    document.querySelector("#bookForm").reset();
+    document.querySelector(".addBookForm").reset();
 });
 
 Book.prototype.toggleReadStatus = function() {
