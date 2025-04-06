@@ -15,8 +15,8 @@ function addBookToLibrary(title, author, pages, readStatus) {
 }
 
 function displayBooks() {
-    const container = document.getElementById("libraryContainer");
-    container.innerHTML = "";
+    const bookshelf = document.getElementById(".bookshelf");
+    bookshelf.innerHTML = "";
     library.forEach(book => {
         const bookCard = document.createElement("div");
         bookCard.classList.add("book-card");
@@ -38,9 +38,20 @@ function displayBooks() {
         bookCard.appendChild(author);
         bookCard.appendChild(pages);
         bookCard.appendChild(readStatus);
+        
+        const removeButton = bookCard.querySelector(".removeButton");
+        removeButton.addEventListener("click", () => {
+            removeBook(book.id);
+        });
 
-        container.appendChild(bookCard);
+        bookshelf.appendChild(bookCard);
     });
+
+}
+
+function removeBook(bookId) {
+    library = library.filter(book => book.id !== bookId);
+    displayBooks();
 }
 
 const submitButton = document.querySelector("#submitButton");
