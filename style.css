@@ -50,8 +50,8 @@ body {
 }
 
 .header > img {
-    width: 5em;
-    height: 5em;
+    width: 7%;
+    height: auto;
 }
 
 .addBook {
@@ -59,7 +59,7 @@ body {
     grid-row: 2 / 3;
     display: grid;
     grid-template-rows: 1fr 5fr;
-    overflow: scroll;
+    overflow: visible;
 }
 
 .addBookHeader {
