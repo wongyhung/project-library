@@ -1,0 +1,46 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5%;
+    height: 100vh;
+    width: 100vw;
+}
+
+.libraryContainer {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    border-radius: 25px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px 0px black;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 5fr;
+}
+
+.libraryContainer > div {
+    border: 1px solid black;
+}
+
+.header {
+    grid-column: 1 / 3;
+    grid-row: 1;
+}
+
+.addBook {
+    grid-column: 1;
+    grid-row: 2 / 3;
+}
+
+.bookshelf {
+    grid-column: 2;
+    grid-row: 2 / 3;
+}

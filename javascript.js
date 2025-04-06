@@ -11,6 +11,7 @@ const library = [];
 function addBookToLibrary(title, author, pages, readStatus) {
     const newBook = new Book(title, author, pages, readStatus);
     library.push(newBook);
+    displayBooks();
 }
 
 function displayBooks() {
@@ -39,5 +40,6 @@ function displayBooks() {
         bookCard.appendChild(readStatus);
 
         container.appendChild(bookCard);
-    })
+    });
 }
+
