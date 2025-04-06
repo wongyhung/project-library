@@ -38,7 +38,7 @@ body {
 .header {
     grid-column: 1 / 3;
     grid-row: 1;
-    overflow: scroll;
+    overflow: auto;
     font-size: larger;
     display: flex;
     justify-content: space-around;
@@ -59,7 +59,7 @@ body {
     grid-row: 2 / 3;
     display: grid;
     grid-template-rows: 1fr 5fr;
-    overflow: visible;
+    overflow: auto;
 }
 
 .addBookHeader {
