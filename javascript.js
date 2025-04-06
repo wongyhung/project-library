@@ -79,9 +79,9 @@ function removeBook(bookId) {
     displayBooks();
 }
 
-const submitButton = document.querySelector("#submitButton");
+const addBookForm = document.querySelector(".addBookForm");
 
-submitButton.addEventListener("click", (event) => {
+addBookForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const title = document.querySelector("#bookTitle").value;
