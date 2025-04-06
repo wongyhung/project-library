@@ -6,7 +6,7 @@ function Book(title, author, pages, readStatus) {
     this.readStatus = readStatus;
 }
 
-const library = [];
+let library = [];
 
 function addBookToLibrary(title, author, pages, readStatus) {
     const newBook = new Book(title, author, pages, readStatus);
@@ -15,7 +15,7 @@ function addBookToLibrary(title, author, pages, readStatus) {
 }
 
 function displayBooks() {
-    const bookshelf = document.getElementById(".bookshelf");
+    const bookshelf = document.querySelector(".bookshelf");
     bookshelf.innerHTML = "";
     library.forEach(book => {
         const bookCard = document.createElement("div");
@@ -39,10 +39,25 @@ function displayBooks() {
         bookCard.appendChild(pages);
         bookCard.appendChild(readStatus);
         
-        const removeButton = bookCard.querySelector(".removeButton");
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Delete";
+        removeButton.classList.add("removeButton");
         removeButton.addEventListener("click", () => {
             removeBook(book.id);
         });
+
+        const readStatusButton = document.createElement("button");
+        readStatusButton.textContent = "Change Read Status";
+        readStatusButton.classList.add("readStatusButton");
+        readStatusButton.addEventListener("click", () => {
+            const targetBook = library.find(b => b.id === book.id);
+            targetBook.toggleReadStatus();
+            displayBooks();
+        });
+
+        bookCard.appendChild(readStatusButton);
+
+        bookCard.appendChild(removeButton);
 
         bookshelf.appendChild(bookCard);
     });
@@ -68,3 +83,7 @@ submitButton.addEventListener("click", (event) => {
 
     document.querySelector("#bookForm").reset();
 });
+
+Book.prototype.toggleReadStatus = function() {
+    this.readStatus = this.readStatus === "Read" ? "Not read" : "Read";
+}
