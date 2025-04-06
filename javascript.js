@@ -22,6 +22,11 @@ function displayBooks() {
         bookCard.classList.add("book-card");
         bookCard.dataset.id = book.id;
 
+        const infoContainer = document.createElement("div");
+        infoContainer.classList.add("infoContainer");
+
+        bookCard.appendChild(infoContainer);
+
         const title = document.createElement("h3");
         title.textContent = `Title: ${book.title}`;
 
@@ -34,11 +39,14 @@ function displayBooks() {
         const readStatus = document.createElement("p");
         readStatus.textContent = `Read: ${book.readStatus}`;
 
-        bookCard.appendChild(title);
-        bookCard.appendChild(author);
-        bookCard.appendChild(pages);
-        bookCard.appendChild(readStatus);
-        
+        infoContainer.appendChild(title);
+        infoContainer.appendChild(author);
+        infoContainer.appendChild(pages);
+        infoContainer.appendChild(readStatus);
+
+        const buttonContainer = document.createElement("div");
+        buttonContainer.classList.add("buttonContainer");
+
         const removeButton = document.createElement("button");
         removeButton.textContent = "Delete";
         removeButton.classList.add("removeButton");
@@ -55,9 +63,11 @@ function displayBooks() {
             displayBooks();
         });
 
-        bookCard.appendChild(readStatusButton);
+        bookCard.appendChild(buttonContainer);
 
-        bookCard.appendChild(removeButton);
+        buttonContainer.appendChild(readStatusButton);
+
+        buttonContainer.appendChild(removeButton);
 
         bookshelf.appendChild(bookCard);
     });
