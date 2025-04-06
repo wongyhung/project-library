@@ -26,13 +26,13 @@ function displayBooks() {
         title.textContent = `Title: ${book.title}`;
 
         const author = document.createElement("p");
-        title.textContent = `Author: ${book.author}`;
+        author.textContent = `Author: ${book.author}`;
 
         const pages = document.createElement("p");
-        title.textContent = `Pages: ${book.pages}`;
+        pages.textContent = `Pages: ${book.pages}`;
 
         const readStatus = document.createElement("p");
-        title.textContent = `Read: ${book.readStatus}`;
+        readStatus.textContent = `Read: ${book.readStatus}`;
 
         bookCard.appendChild(title);
         bookCard.appendChild(author);
@@ -43,3 +43,17 @@ function displayBooks() {
     });
 }
 
+const submitButton = document.querySelector("#submitButton");
+
+submitButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const title = document.querySelector("#bookTitle").value;
+    const author = document.querySelector("#bookAuthor").value;
+    const pages = document.querySelector("#bookPages").value;
+    const readStatus = document.querySelector("#readStatus").value;
+
+    addBookToLibrary(title, author, pages, readStatus);
+
+    document.querySelector("#bookForm").reset();
+});
